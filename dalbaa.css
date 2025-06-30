@@ -1,0 +1,31 @@
+main {
+    display:flex;
+    height: 100%;
+    width: 100%;
+    align-items: center;
+    justify-content: center;
+}
+.soyombo {
+    position:absolute;
+}
+
+.tug {
+    width:300px;
+    height:600px;
+    padding:80px;
+}
+
+.ulaan {
+    background-color: #DA2032;
+}
+
+.tsenher {
+    background-color: #0066B3;
+}
+
+.relative {
+    position: relative;
+    justify-content: center;
+    align-items: center;
+    display: flex;
+}
