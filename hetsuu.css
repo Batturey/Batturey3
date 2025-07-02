@@ -1,0 +1,33 @@
+header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    position: sticky;
+    top: 0;
+    border-bottom: 1px solid black;
+    background-color: white;
+}
+header #logo{
+    width: 40px;
+    height: 40px;
+    margin-right: 10px;
+}
+header .logoContainer{
+    display: flex;
+    align-items: center;
+}
+header .contactContainer {
+    display: flex;
+}
+header nav a { 
+    margin-right: 10px;
+}
+main{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+main . title {
+    border-bottom: 1px solid black;
+    flex-direction: column;
+}
