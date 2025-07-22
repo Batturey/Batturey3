@@ -1,0 +1,50 @@
+.text{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: rgb(235, 214, 157);
+    padding-top: 50px;
+}
+.text2{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding-top: 80px;
+}
+.box1{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 40px;
+}
+.img{
+    position: relative;
+}
+.box2{
+    position: relative;
+    border: 1px solid rgb(211, 211, 211);
+}
+.box3{
+    position: relative;
+    border: 1px solid rgb(211,211,211);
+}
+.box4{
+    position: relative;
+    border: 1px solid rgb(211, 211, 211);
+}
+.box5{
+    position: relative;
+    border: 1px solid rgb(211, 211, 211)
+}
+.font{
+    color: rgb(235, 214, 157);
+}
+.font2{
+    color: rgb(235, 214, 157);
+}
+.font3{
+    color: rgb(235, 214, 157);
+}
+.font4{
+    color: rgb(235, 214, 157);
+}
