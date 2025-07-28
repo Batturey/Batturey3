@@ -1,0 +1,11 @@
+.sign{
+    justify-content: center;
+    align-items: center;
+    display: flex;
+    background-color:red;
+}
+.op{
+    justify-content: center;
+    display: flex;
+    align-items: center;
+}

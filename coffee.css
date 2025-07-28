@@ -1,0 +1,81 @@
+.kofi {
+    width: 200px;
+    height: 100px;
+}
+.header1 {
+    justify-content: space-around;
+    display: flex;
+}
+
+.header2 {
+    gap: 20px;
+    display: flex;
+}
+
+.header3 {
+    margin-left: 150px;
+    gap: 100px;
+    margin-top: 30px;
+    display: flex;
+}
+
+.header3 a {
+    text-decoration: none;
+    color: black;
+}
+
+.header4 {
+    display: flex;
+}
+
+.search {
+    width: 50px;
+    height: 50px;
+}
+
+.shopping {
+    width: 50px;
+    height: 50px;
+}
+
+.settings {
+    width: 50px;
+    height: 50px;
+    gap: 100px;
+}
+
+.spill {
+    position: relative;
+    width: 2225px; 
+    height: 1000px;
+}
+
+.main {
+    display: flex;
+}
+
+.blackcoffee {
+    position: absolute;
+    left: 100px;
+}
+.sec{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color:#f6f6f6;
+}
+.exp{
+    width: 180px;
+    height: 55px;
+    border: 0;
+    background-color: blue;
+    border-radius: 38px;
+    color: white;
+}
+.exp:hover{
+    background-color: black;
+    transition: all ease .3s;
+}
+.font{
+    width: 570px;
+}

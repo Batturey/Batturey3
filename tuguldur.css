@@ -1,0 +1,142 @@
+body {
+  margin: 0;
+  font-family: Arial, sans-serif;
+}
+
+.magazine-cover {
+  position: relative;
+  width: 600px;
+  height: 900px;
+  margin: auto;
+  border: 1px solid #000;
+  background: linear-gradient(
+    180deg,
+    rgba(0, 0, 0, 0.877) 0%,
+    rgba(0, 0, 0, 0.408) 100%
+  );
+  overflow: hidden;
+}
+
+.img-container {
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  top: 0;
+  display: flex;
+  justify-content: center;
+}
+
+.img-container img {
+  position: absolute;
+  bottom: 0;
+  height: 850px;
+  z-index: 2;
+}
+
+.overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  color: #ffd000;
+  box-sizing: border-box;
+  z-index: 3;
+}
+
+.masthead {
+  font-size: 100px;
+  font-weight: bold;
+  position: absolute;
+  left: 0;
+  right: 0;
+  text-align: center;
+  z-index: 1;
+  color: #ffd000;
+}
+
+.text-block {
+  color: white;
+  max-width: 200px;
+}
+
+.top-left {
+  position: absolute;
+  top: 200px;
+  left: 20px;
+}
+
+.mid-left {
+  position: absolute;
+  top: 400px;
+  left: 20px;
+}
+
+.bottom-left {
+  position: absolute;
+  bottom: 5px;
+}
+
+.top-right {
+  position: absolute;
+  top: 300px;
+  right: 0;
+  text-align: right;
+  padding: 20px;
+}
+
+.main-title {
+  position: absolute;
+  bottom: 150px;
+  left: 0px;
+  right: 0px;
+  font-size: 32px;
+  font-weight: bold;
+  color: white;
+  text-align: center;
+}
+
+.subtitle {
+  position: absolute;
+  bottom: 250px;
+  left: 0px;
+  right: 0px;
+  font-size: 16px;
+  color: #ffd000;
+  text-align: center;
+}
+
+.barcode {
+  position: absolute;
+  bottom: 20px;
+  right: 20px;
+  color: white;
+  height: 90px;
+  width: 155px;
+  background-size: cover;
+}
+p {
+  gap: 8px;
+  font-style: italic;
+}
+h3 {
+  color: yellow;
+}
+.bor1 {
+  background-color: rgba(184, 172, 150, 0.4);
+  padding: 10px 10px;
+  position: absolute;
+  right: 0;
+  color: white;
+  bottom: 420px;
+}
+.bor2 {
+  background-color: rgba(184, 172, 150, 0.4);
+  padding: 10px 20px;
+  left: 0;
+}
+.text {
+  display: flex;
+  gap: 30px;
+}

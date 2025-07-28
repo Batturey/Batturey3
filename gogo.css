@@ -1,0 +1,134 @@
+header {
+    position: sticky;
+  padding: 10px 20px;
+  display: flex;
+  justify-content: space-between;
+}
+
+header .menu-left {
+  display: flex;
+  align-items: center;
+  gap: 50px;
+}
+
+.menu-left nav {
+  display: flex;
+  gap: 30px;
+}
+
+.menu-left nav a {
+  text-decoration: none;
+  color: black;
+  font-weight: bold;
+}
+
+.menu-left img {
+  width: 100px;
+}
+
+.menu-right {
+  display: flex;
+  gap: 20px;
+}
+
+.widget {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.widget h4 {
+  margin: 0;
+  font-size: 12px;
+  font-weight: 400;
+  text-align: end;
+}
+.widget-info img {
+  width: 20px;
+}
+.widget-info {
+  display: flex;
+  justify-content: center;
+  gap: 10px;
+}
+
+.box1 {
+    max-width: 700px;
+    height: 500px;
+}
+
+.widget-info span {
+  font-size: 18px;
+  font-weight: bold;
+}
+
+.mainArticle {
+    justify-content: center;
+    align-items: center;
+    display: flex;
+}
+
+.mainArticle .box1 {
+    padding-right: 50px;
+    margin: 0;
+    position: relative;
+    background-color: rgb(240, 240, 236);
+    border-radius: 8px;
+    width: 700px;
+    height: 500px;
+}
+[12:53]
+.mainArticle .gogoScreen img {
+    margin: 0;
+    position: absolute;
+    border-radius: 8px;
+    max-width: 100%;
+    height: 500px;
+}
+
+.biznes {
+    position: absolute;
+    top: 175px;
+}
+
+.mainArticle .box1 h1 {
+    position: absolute;
+    top: 100px;
+}
+
+.mainArticle .box1 p {
+    position: absolute;
+    top: 240px;
+}
+
+.gogoScreen {
+    max-width: auto;
+    height: 500px;
+    display: flex;
+}
+
+.gogoScreen .delgerengui {
+    opacity: 0;
+    position: absolute;
+    color: white;
+    top: 360px;
+    left: 1360px;
+    transition: opacity 0.2s ease-in;
+}
+
+.gogoScreen #gogoScreenImg {
+    position: relative;
+    background-size: cover;
+    transition: width 0.2s ease-in, height 0.2s ease-in;
+}
+
+.gogoScreen:hover {
+    .delgerengui {
+        opacity: 1;
+    }
+
+    .gogoScreen #gogoScreenImg {
+        color: linear-gradient(rgba(0,0,0,0.5),rgba(0,0,0,0.5),lightgrey);
+        width: 800;
+        height: 600;
+    }

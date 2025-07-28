@@ -1,0 +1,50 @@
+.box{
+    width: 100px;
+    height: 100px;
+    background-color: black;
+    transition: transform 0.7s ease-in; 
+    color: blueviolet;
+}
+.box:hover{
+    transform:translate(50px,20px);
+}
+.box2{
+    width: 100px;
+    height: 100px;
+    background-color: black;
+    color: white;
+    transition: transform 0.8s ease-in;
+}
+.box2:hover{
+transform: rotate(360deg);
+}
+.box3{
+    width: 100px;
+    height: 100px;
+    background-color: black;
+    color: aquamarine;
+    transition: transform 0.7s ease-in ;
+}
+.box3:hover{
+    transform: scale(1.2);
+}
+.box4{
+    width: 100px;
+    height: 100px;
+    background-color: black;
+    color: white;
+    transition: transform 0.7s ease-in;
+}
+.box4:hover{
+    transform: skewX(20deg);
+}
+.box5{
+    width: 100px;
+    height: 100px;
+    background-color: black;
+    color: white;
+    transition: transform 0.7s ease-in;
+}
+.box5:hover{
+    transform:rotate(10deg),scale(1.1),translateY(-10px);
+}

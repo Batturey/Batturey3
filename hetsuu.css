@@ -1,0 +1,103 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: 'Georgia', serif;
+  background: #f9f4ef;
+  color: #222;
+  padding-top: 80px;
+}
+
+.sticky-header {
+  position: sticky;
+  top: 0;
+  background: #fff;
+  padding: 15px 30px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border-bottom: 1px solid #ddd;
+  z-index: 999;
+}
+
+.sticky-header .logo {
+  font-weight: bold;
+  font-size: 20px;
+}
+
+.sticky-header .nav a {
+  margin-left: 20px;
+  text-decoration: none;
+  color: #000;
+  font-size: 14px;
+}
+
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 20px;
+}
+
+.updates-title {
+  font-size: 22px;
+  margin-bottom: 20px;
+  text-align: center;
+}
+
+.news-grid {
+  display: flex;
+  gap: 20px;
+}
+
+.column {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.card {
+  background: #fff;
+  padding: 20px;
+  border-left: 3px solid #ccc;
+  box-shadow: 0 1px 4px rgba(0,0,0,0.05);
+}
+
+.card h3 {
+  margin-bottom: 10px;
+  font-size: 18px;
+  font-weight: bold;
+}
+
+.card p {
+  font-size: 14px;
+  line-height: 1.5;
+  color: #333;
+}
+
+.card .author {
+  margin-top: 10px;
+  font-style: italic;
+  color: #666;
+  font-size: 13px;
+}
+
+.highlight {
+  color: darkred;
+  font-weight: bold;
+}
+
+.card img {
+  width: 100%;
+  height: auto;
+  margin-bottom: 10px;
+}
+
+.podcast .duration {
+  font-weight: bold;
+  display: block;
+  margin-top: 5px;
+}

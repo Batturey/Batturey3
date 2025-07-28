@@ -1,0 +1,18 @@
+.box{
+    justify-content: center;
+    align-items: center;
+    background-color: blue;
+    color: white;
+    display: flex;
+}
+.boxx{
+    justify-content: center;
+    align-items: center;
+    display: flex;
+}
+,body{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    
+}

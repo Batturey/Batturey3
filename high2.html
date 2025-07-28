@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Highest number 2</title>
+  </head>
+  <body>
+    <script>
+      function highest_number_2(a, b, c) {
+        if (a > b) {
+          if (a > c) {
+            return a;
+          }
+        } else if (b > a) {
+          if (b > c) {
+            return b;
+          } else {
+            return c;
+          }
+        }
+      }
+      console.log(highest_number_2(12, 13, 8));
+    </script>
+  </body>
+</html>
