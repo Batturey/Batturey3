@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        //Ex1
+        const car = {
+            brand: "Pagani",
+            model: "Camry",
+            year: 1990,
+        };
+
+        console.log("brand", car.brand);
+        console.log("model", car.model);
+        console.log("year", car.year);
+        //Ex2
+
+        let person = new Object(); {
+
+            person.firstName = "Battur"
+            person.lastName = "Batbaatar"
+            person.age = 15;
+
+
+            delete person.age
+
+            person.city = "Ulaanbaatar"
+            person.position = "Single"
+            person.isMarried = "None"
+
+            console.log("person:", person)
+        }
+        //Ex3
+        function getFirstName(firstName, lastName) {
+            return firstName + lastName
+        }
+
+        person["getFulltName"] = getFirstName;
+
+        console.log(person.getFulltName(person.firstName, person.lastName))
+        //Ex4
+        let movie = {
+            title: "Dark Knight",
+            director: "Christopher Nolan",
+            year: "2008",
+            genre: "Thriller"
+        };
+
+        function getKeysAndValues () {
+            return Object.entries(movie)
+        }
+
+        console.log("ex4:", getKeysAndValues())
+        //Ex5
+        let address = {
+            street: "Seoul Street",
+            city: "Washington",
+            zipCode: "22313"
+        }
+        let student = {
+            name: "Battur",
+            age : 17,
+        }
+        student.address = address;
+        function getFullAddress(city,street,zipCode) {
+            return city+street+zipCode
+        }
+        student.getFullAddress = getFullAddress;
+        console.log(student.getFullAddress(address.city,address.street,address.zipCode))
+        //Ex6
+        let user = {
+            name: "Battur",
+            age: 17,
+            greet: function() {
+                return `Hoyulaa uzeh uu?, Minii ner ${this.name}`;
+            },
+            updateName: function(newName) {
+                return this.name = newName;
+            }
+        };
+        console.log(user.greet(), user.updateName("Gal2"), user.greet())
+        //Ex7
+        let book1 = {
+            title: "Rich Dad Poor Dad",
+            author:"Robert Kiyosaki",
+            year: 1997
+        }
+        let book2 = {
+            author:  "Robert Kiyosaki",
+            description: "contrasts two contrasting financial philosophies through the experiences of the author and his two fathers",
+            category: "Personal Finance",
+            year: 1997 
+        }
+        function mergeBooks(book1, book2) {
+            return Object.assign(book1, book2);
+        };
+
+        console.log("Ex7:", mergeBooks(book1, book2));
+
+        //Ex8 
+        let config = {
+            host : "Medku",
+            port : 12,
+            protocol : "Yu geed bgan be"
+        }
+        Object.freeze(config);
+        config.port = "14"
+        console.log(config)
+
+        //Ex10
+        let students = {
+            1: {name: "Bolor", grade:95},
+            2: {name : "Anu", grade:87 },
+            3: {name: "Temuujin", grade:78},
+            4: {name: "Delger",grade: 83},
+            5: {name: "Zolzaya", grade: 92}
+        };
+        function calculateAverage() {
+            const total = students[1].grade + students[2].grade + students[3].grade + students[4].grade + students[5].grade;
+            return total / 5;
+        }
+        console.log("Dundaj bol:", calculateAverage())
+        function findAboveAverageStudents(averageGrade) {
+            console.log("Above Average Students: ")
+            if (students[1].grade > averageGrade) {
+                console.log(`Student ${students[1].name}, grade ${students[1].grade}`);
+            };
+            if (students[2].grade > averageGrade) {
+                console.log(`Student ${students[2].name}, grade ${students[2].grade}`);
+            };
+            if (students[3].grade > averageGrade) {
+                console.log(`Student ${students[3].name}, grade ${students[3].grade}`);
+            };
+            if (students[4].grade > averageGrade) {
+                console.log(`Student ${students[4].name}, grade ${students[4].grade}`);
+            };
+            if (students[5].grade > averageGrade) {
+                console.log(`Student ${students[5].name}, grade ${students[5].grade}`);
+            };
+        }
+        console.log( findAboveAverageStudents( calculateAverage()))
+    </script>
+</body>
+</html>
