@@ -40,7 +40,6 @@
         }
 
         person["getFulltName"] = getFirstName;
-
         console.log(person.getFulltName(person.firstName, person.lastName))
         //Ex4
         let movie = {
@@ -143,6 +142,49 @@
             };
         }
         console.log( findAboveAverageStudents( calculateAverage()))
+        function findHighestScoreStudent() {
+            let HighestScoreStudent = students[1].grade;
+            if (students[2].grade >= HighestScoreStudent) {
+                HighestScoreStudent = students[2].grade;
+            }
+
+            if (students[3].grade >= HighestScoreStudent) {
+                HighestScoreStudent = students[3].grade;
+            }
+
+            if (students[4].grade >= HighestScoreStudent) {
+                HighestScoreStudent = students[4].grade;
+            }
+
+            if (students[5].grade >= HighestScoreStudent) {
+                HighestScoreStudent = students[5].grade;
+            }
+
+            return HighestScoreStudent;
+        }
+        console.log(findHighestScoreStudent())
+        function findLowestScoreStudent() {
+            let LowestScoreStudents = students[1].grade;
+            if (students[2].grade < LowestScoreStudents) {
+                LowestScoreStudents = students[2].grade;
+            }
+
+            if (students[3].grade < LowestScoreStudents) {
+                LowestScoreStudents = students[3].grade;
+            }
+
+            if (students[4].grade < LowestScoreStudents) {
+                LowestScoreStudents = students[4].grade;
+            }
+
+            if (students[5].grade < LowestScoreStudents) {
+                LowestScoreStudents = students[5].grade; 
+            }
+
+            return LowestScoreStudents
+        }
+        console.log( findLowestScoreStudent())
+
     </script>
 </body>
 </html>
