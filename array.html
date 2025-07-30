@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <script>
+      let insect = ["Lion", "Tiger", "Elephant", "Giraffe"];
+      console.log(insect[3]);
+      //Ex2
+
+      const animals = ["Lion", "Tiger", "Elephant", "Giraffe"];
+      animals[2] = "Panda";
+      console.log(animals);
+
+      //Ex3
+      const books = ["1984", "Brave New World", "Fahrenheit 451"];
+      console.log(books);
+      books.push("Battur", "King");
+      console.log(books);
+      //Ex4
+      const numbers2 = [10, 20, 30, 40, 50];
+      console.log(numbers2.indexOf(30));
+
+      //Ex5
+      const fruits1 = ["Apple", "Grape", "Mango", "Kiwi"];
+      const fruits2 = ["Banana", "Strawberry", "Passion", "Melon"];
+      const allFruit = fruits1.concat(fruits2);
+      console.log(allFruit);
+
+      //Ex6
+      const colors = ["Red", "Green", "Blue", "Yellow", "Purple"];
+      console.log(colors.includes("Red"));
+      console.log(colors.includes("Green"));
+      console.log(colors.includes("Blue"));
+      console.log(colors.includes("Yellow"));
+      console.log(colors.includes("Purple"));
+      //Ex7
+      const array1 = ["a", "b", "c"];
+      const array2 = ["a", "b", "c"];
+      const array3 = array1.find(urtTentsuubaival);
+      function urtTentsuubaival() {
+        return array1.length === array2.length;
+      }
+      console.log(urtTentsuubaival());
+      //Ex8
+      const words = ["JavaScript", "is", "a", "versatile", "language"];
+      console.log(words.join(" "));
+      //JS Array
+      //Ex1
+      const students = [
+        { name: "Anu", grade: 85 },
+        { name: "Bold", grade: 92 },
+        { name: "Tuvshin", grade: 78 },
+        { name: "Naraa", grade: 88 },
+        { name: "Solongo", grade: 95 },
+      ];
+
+      const topStudents = new Array();
+
+      students.forEach((student, index) => {
+        if (student.grade > 90) {
+          console.log(student);
+        }
+      });
+
+      console.log("Shildeg surahc", topStudents);
+      //Ex1.2
+      console.log(
+        "ymar hetsuu dasgal ve uhlee bagshaa",
+        students.sort((x, y) => x.grade - y.grade)
+      );
+      //Ex1.3
+      const studentsss = [
+        { name: "Anu", grade: 85 },
+        { name: "Bold", grade: 92 },
+        { name: "Tuvshin", grade: 78 },
+        { name: "Naraa", grade: 88 },
+        { name: "Solongo", grade: 95 },
+      ];
+      let highestGrade = 0;
+
+      students.forEach((student) => {
+        if (student.grade > highestGrade) {
+          highestGrade = student.grade;
+        }
+      });
+
+      console.log("highest", highestGrade);
+      let highestStudent = students.find(
+        (student) => student.grade == highestGrade
+      );
+      console.log(highestStudent);
+      //Ex2.1
+      const products = [
+        { id: 1, name: "Laptop", price: 2500 },
+        { id: 2, name: "Mouse", price: 25 },
+        { id: 3, name: "Monitor", price: 400 },
+        { id: 4, name: "Keyboard", price: 100 },
+        { id: 5, name: "Phone", price: 1200 },
+      ]; 
+      const cheapProducts = [];
+
+      products.forEach(function (product) {
+        if (product.price < 500) {
+          return cheapProducts.push(product);
+        }
+      });
+
+      console.log(cheapProducts, products);
+      //Ex 2.2 
+      const productss = [
+        { id: 1, name: "Laptop", price: 2500 },
+        { id: 2, name: "Mouse", price: 25 },
+        { id: 3, name: "Monitor", price: 400 },
+        { id: 4, name: "Keyboard", price: 100 },
+        { id: 5, name: "Phone", price: 1200 },
+      ];
+      console.log("ymar hetsuu dasgal ve uhlee bagshaa",
+      productss.sort((x, y) => x.price - y.price))
+        //Ex 2.3
+        let highestPrice = 0; 
+        products.forEach(product => {
+            if (product.price >  highestPrice){
+                highestPrice = product.price
+            }
+        });
+        console.log(highestPrice)
+      </script>
+  </body>
+</html>
