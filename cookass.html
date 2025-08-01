@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Exercise-2</title>
+</head>
+<body>
+    <p id="demo1"></p>
+    <p id="demo2"></p>
+    <p id="demo3"></p>
+    <p id="demo4"></p>
+    <script>
+        class Item {
+            constructor(name, price, quantity) {
+                this.name = name;
+                this.price = price;
+                this.quantity = quantity;
+            }
+
+            getTotalPrice() {
+                return this.price * this.quantity;
+            }
+        }
+
+        class Inventory extends Item{
+            constructor(name, price, quantity) {
+                super(name, price, quantity);
+                this.items = new Array();
+            }
+
+            addItem(item) {
+                console.log('iii', this.items)
+                this.items.push(item);
+            }
+
+            removeItem(itemName) {
+                let index = this.items.indexOf(this.items.find(item => item.name === itemName));
+                delete this.items[index];
+            }
+
+            getInventoryValue() {
+                let total = 0;
+                this.items.map(item => total += item.getTotalPrice());
+                return total;
+            }
+
+            printInventory() {
+                const printValues = new Array();
+                this.items.forEach(item => printValues.push(Object.values(item).toString()));
+                return printValues;
+            }
+        }
+            const item1 = new Item('Laptop', 1200, 2);
+        const item2 = new Item('Mouse', 25, 10);
+        const item3 = new Item('Keyboard', 75, 5);
+        const item4 = new Item("name4", 4, 4);
+        const item5 = new Item("name5", 5, 5);
+
+        const inventory = new Inventory();
+        inventory.addItem(item1);
+        inventory.addItem(item2);
+        inventory.addItem(item3);
+        inventory.addItem(item4);
+        inventory.addItem(item5);
+
+        inventory.removeItem("name5");
+
+        document.getElementById("totals").innerHTML = total {inventory.getInventoryValue()};
+        document.getElementById("printInventory").innerHTML = inventory.printInventory(); s
+
+    </script>
+</body>
+</html>
