@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Weather App</title>
+    <link rel="stylesheet" href="weather.css">
+</head>
+<body>
+    <div class="container">
+        <h1>Weather App</h1>
+        <input type="text" id="city-input" placeholder="Enter city name"/>
+        <button id="get-weather" onclick="getWeather()">Get Weather</button>
+        <div id="weather-info"></div>
+    </div>
+
+<script>
+    function getWeather() {
+        const city = document.getElementById("city-input").value.trim();
+        const weatherInfo = document.getElementById("weather-info");
+
+        if (!city) {
+            weatherInfo.innerHTML = "<p>Please enter a city name.</p>";
+            return;
+        }
+
+        fetch(`https://api.openweathermap.org/data/2.5/weather?q=${city}&units=metric&appid=ffc74c9e41d3cd99bf6bb25a7f582a7a`)
+            .then(res => {
+                if (!res.ok) throw new Error("City not found");
+                return res.json();
+            })
+            .then(data => {
+                const iconUrl = `https://openweathermap.org/img/wn/${data.weather[0].icon}@2x.png`;
+                weatherInfo.innerHTML = `
+                    <h2>${data.name}, ${data.sys.country}</h2>
+                    <img src="${iconUrl}" alt="${data.weather[0].description}" class="weather-icon">
+                    <p><strong>Temperature:</strong> ${data.main.temp}째C</p>
+                    <p><strong>Feels Like:</strong> ${data.main.feels_like}째C</p>
+                    <p><strong>Min:</strong> ${data.main.temp_min}째C | <strong>Max:</strong> ${data.main.temp_max}째C</p>
+                    <p><strong>Humidity:</strong> ${data.main.humidity}%</p>
+                    <p><strong>Wind Speed:</strong> ${data.wind.speed} m/s</p>
+                    <p><strong>Condition:</strong> ${data.weather[0].description}</p>
+                `;
+            })
+            .catch(err => {
+                weatherInfo.innerHTML = `<p style="color: red;">${err.message}</p>`;
+            });
+    }
+</script>
+</body>
+</html>
