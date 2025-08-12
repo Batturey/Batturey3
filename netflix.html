@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Netflix Ghibli Clone</title>
+    <link rel="stylesheet" href="netflix.css" />
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Merriweather:ital,opsz,wght@0,18..144,300..900;1,18..144,300..900&display=swap" rel="stylesheet">
+  </head>
+  <body>
+    <header class="main-header">
+      <div class="headerContainer">
+        <div class="utilityContainer">
+          <img
+            src="netflix.png"
+            alt="netflix logo"
+            class="netflix-header-picture"
+          />
+
+          <nav class="header-nav">
+            <a href="home.html" class="header-nav-a">home</a>
+            <a href="series.html" class="header-nav-a">series</a>
+            <a href="movie.html" class="header-nav-a">movie</a>
+            <a href="game.html" class="header-nav-a">game</a>
+            <a href="latest-content.html" class="header-nav-a"
+              >Latest content</a
+            >
+            <a href="my-wishlist.html" class="header-nav-a">My wishlist</a>
+            <a href="browse-by-language" class="header-nav-a"
+              >Browse by language</a
+            >
+          </nav>
+        </div>
+
+        <div class="header-icons">
+          <img
+            src="searchbutton.png"
+            alt="search button"
+            class="header-search-button"
+          />
+
+          <nav class="header-nav">
+            <a href="kids.html" class="header-nav-two-a">kids</a>
+          </nav>
+
+          <img src="bell.png" alt="bell icon" class="header-bell-logo" />
+
+          <img
+            src="pro.png"
+            alt="profile picture"
+            class="netflix-profile-picture"
+          />
+
+          <button class="pop-menu">▽</button>
+        </div>
+      </div>
+    </header>
+
+    <main>
+      <section class="hero">
+        <div class="hero-video">
+          <iframe
+            width="560"
+            height="315"
+            src="https://www.youtube.com/embed/iwROgK94zcM?playlist=iwROgK94zcM&si=m-1SF2pqs4OzetI-&amp;autoplay=1&mute=1&controls=0&loop=1"
+            title="YouTube video player"
+            frameborder="0"
+            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+            referrerpolicy="strict-origin-when-cross-origin"
+            allowfullscreen
+            
+        
+          ></iframe>
+        </div>
+        <div class="hero-overlay">
+          <h1 class="sophie">Sophie</h1>
+          <p class="cat">Sophie, a quiet girl working in a hat shop, finds her life thrown into turmoil when she is literally swept off her feet by a handsome but mysterious wizard named Howl. The vain and vengeful Witch of the Waste, jealous of their friendship, puts a curse on Sophie and turns her into a 90-year-old woman. On a quest to break the spell, Sophie climbs aboard Howl’s magnificent moving castle and into a new life of wonder and adventure. But as the true power of Howl’s wizardry is revealed, Sophie finds herself fighting to protect them both from a dangerous war of sorcery that threatens their world. Featuring the voice talents of Lauren Bacall, Christian Bale, Billy Crystal, Blythe Danner, Emily Mortimer, and Jean Simmons.</p>
+          </p>
+        </div>
+      </section>
+
+      <section class="category">
+   
+        <div class="movie-row" id="ghibli-movies"></div>
+      </section>
+    </main>
+
+    <footer>
+      <p>&copy; 2025 Netflix. All rights reserved.</p>
+    </footer>
+
+    <script>
+      const container = document.getElementById("ghibli-movies");
+
+      function getMovies() {
+        fetch(`https://ghibliapi.vercel.app/films`)
+          .then((res) => {
+            if (!res.ok) throw new Error("Movies not found, api wrong");
+            return res.json();
+          })
+          .then((data) => {
+            console.log(data);
+            const movies = data;
+            movies.map((movie) => {
+              const list = document.createElement("div");
+              list.classList.add("movieContainer");
+
+              list.innerHTML = `
+              <img src="${movie.image}" alt="${movie.title}"/>
+              <h2>${movie.title}</h2>
+            `;
+
+              container.appendChild(list);
+            });
+          })
+          .catch((error) => {
+            console.error(error);
+            container.innerHTML = `<p style="color: red;">Failed to load movies.</p>`;
+          });
+      }
+
+      getMovies();
+    </script>
+  </body>
+</html>
