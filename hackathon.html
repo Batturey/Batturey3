@@ -1,0 +1,373 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Advanced Breathing Exercises</title>
+    <link
+      href="https://fonts.googleapis.com/css2?family=Oswald:wght@300;400;600&display=swap"
+      rel="stylesheet"
+    />
+    <style>
+      body {
+        margin: 0;
+        font-family: "Oswald", sans-serif;
+        min-height: 100vh;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        background: radial-gradient(
+          circle at center,
+          rgba(22, 22, 26, 1) 0%,
+          rgba(40, 90, 70, 1) 50%,
+          rgba(62, 132, 93, 1) 80%,
+          rgba(87, 199, 133, 1) 100%
+        );
+        background-size: 200% 200%;
+        animation: gradientShift 25s ease-in-out infinite;
+        color: white;
+        text-align: center;
+        overflow-x: hidden;
+      }
+
+      @keyframes gradientShift {
+        0% {
+          background-position: 0% 50%;
+        }
+        50% {
+          background-position: 100% 50%;
+        }
+        100% {
+          background-position: 0% 50%;
+        }
+      }
+
+      header {
+        margin-top: 20px;
+        width: 90%;
+        max-width: 900px;
+        text-align: center;
+        padding: 20px 15px;
+        border-radius: 15px;
+        background: linear-gradient(
+          135deg,
+          rgba(22, 22, 26, 0.8),
+          rgba(87, 199, 133, 0.8)
+        );
+        box-shadow: 0 8px 20px rgba(0, 0, 0, 0.5);
+        animation: headerGlow 4s ease-in-out infinite alternate;
+      }
+
+      @keyframes headerGlow {
+        0% {
+          box-shadow: 0 8px 20px rgba(0, 0, 0, 0.5),
+            0 0 30px rgba(87, 199, 133, 0.4);
+        }
+        50% {
+          box-shadow: 0 10px 25px rgba(0, 0, 0, 0.7),
+            0 0 60px rgba(78, 220, 150, 0.6);
+        }
+        100% {
+          box-shadow: 0 8px 20px rgba(0, 0, 0, 0.5),
+            0 0 30px rgba(87, 199, 133, 0.4);
+        }
+      }
+
+      header h1 {
+        font-size: 36px;
+        font-weight: 700;
+        margin: 0;
+        text-shadow: 2px 4px 8px rgba(0, 0, 0, 0.6);
+      }
+
+      header p {
+        font-size: 18px;
+        font-weight: 300;
+        margin: 8px 0 0 0;
+        text-shadow: 1px 2px 4px rgba(0, 0, 0, 0.4);
+      }
+
+      .menu {
+        display: flex;
+        justify-content: center;
+        flex-wrap: wrap;
+        gap: 15px;
+        margin-top: 30px;
+        z-index: 1;
+      }
+
+      .menu button {
+        padding: 12px 25px;
+        background: rgba(255, 255, 255, 0.1);
+        border: none;
+        border-radius: 10px;
+        color: white;
+        font-size: 16px;
+        cursor: pointer;
+        transition: 0.3s;
+      }
+
+      .menu button:hover {
+        background: #78c841;
+        transform: scale(1.1);
+        box-shadow: 0 6px 15px rgba(0, 0, 0, 0.5);
+      }
+
+      #exerciseArea {
+        flex-grow: 1;
+        display: flex;
+        flex-direction: column;
+        justify-content: flex-start;
+        align-items: center;
+        z-index: 0;
+        margin-top: 50px;
+      }
+
+      .circle {
+        width: 300px;
+        height: 300px;
+        max-width: 80vw;
+        max-height: 80vw;
+        border-radius: 50%;
+        background: rgba(255, 255, 255, 0.15);
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-size: 32px;
+        font-weight: 700;
+        transition: transform 1s ease-in-out, background 1s ease-in-out;
+        box-shadow: 0 0 20px rgba(0, 0, 0, 0.4);
+        margin-top: 50px;
+        z-index: 0;
+      }
+
+      .instructions {
+        font-size: 20px;
+        margin-top: 25px;
+        text-shadow: 1px 2px 4px rgba(0, 0, 0, 0.5);
+        z-index: 0;
+      }
+
+      .controls {
+        margin-top: 20px;
+        display: flex;
+        gap: 15px;
+      }
+
+      .controls button {
+        padding: 10px 20px;
+        font-size: 16px;
+        border-radius: 10px;
+        border: none;
+        cursor: pointer;
+        background: rgba(255, 255, 255, 0.1);
+        color: white;
+        transition: 0.3s;
+      }
+
+      .controls button:hover {
+        background: #ff9b2f;
+      }
+    </style>
+  </head>
+  <body>
+    <audio src="breathe.mp3" autoplay class="bgAudio"></audio>
+    <header>
+      <h1>🌿 Advanced Breathing Exercises 🌿</h1>
+      <p>Follow the circle to guide your breathing</p>
+    </header>
+
+    <div class="menu">
+      <button
+        data-description="Хэвлийн булчингаар амьсгалах, гэдэс агших. Стресс бууруулах, уушгины багтаамж нэмэгдүүлэх."
+        onclick="startExercise('belly')"
+      >
+        Belly Breathing
+      </button>
+      <button
+        data-description="Жишээ: 4–4–4–4 (4 сек амьсгал авах → 4 сек барих → 4 сек гаргах → 4 сек барих)."
+        onclick="startExercise('rhythmic')"
+      >
+        Rhythmic (4-4-4-4)
+      </button>
+      <button
+        data-description="Баруун, зүүн хамрын нүхийг ээлжлэн таглаж амьсгалах. Энерги тэнцвэржүүлэх, мэдрэлийн систем тайвшруулах."
+        onclick="startExercise('nostril')"
+      >
+        Alternate Nostril
+      </button>
+      <button
+        data-description="Жишээ: 7-11 breathing (7 сек авах → 11 сек гаргах). Сэтгэл санааг тайвшруулах, нойргүйдэлд тустай."
+        onclick="startExercise('paced')"
+      >
+        Paced (7-11)
+      </button>
+      <button
+        data-description="Капалабхати (йогийн хурдан амьсгал), Wim Hof (хурдан гүн амьсгал + амьсгал барих). Эрч хүч нэмэх, дархлаа дэмжих."
+        onclick="startExercise('active')"
+      >
+        Active (Wim Hof)
+      </button>
+    </div>
+
+    <div id="exerciseArea">
+      <div class="circle" id="circle">Ready</div>
+      <div class="instructions" id="instructions">Select an exercise</div>
+      <div class="controls">
+        <button onclick="stopExercise()">Stop</button>
+      </div>
+    </div>
+
+    <script>
+      let phases = [];
+      let current = 0;
+      let timer;
+      let delayTimer;
+      let countdownTimer;
+      const circle = document.getElementById("circle");
+      const instructions = document.getElementById("instructions");
+
+      const exercises = {
+        belly: [
+          { action: "Inhale", time: 4000, scale: 1.6, color: "#78c841" },
+          {
+            action: "Exhale",
+            time: 4000,
+            scale: 1,
+            color: "rgba(255,255,255,0.15)",
+          },
+        ],
+        rhythmic: [
+          { action: "Inhale", time: 4000, scale: 1.6, color: "#b4e50d" },
+          { action: "Hold", time: 4000, scale: 1.6, color: "#b4e50d" },
+          {
+            action: "Exhale",
+            time: 4000,
+            scale: 1,
+            color: "rgba(255,255,255,0.15)",
+          },
+          {
+            action: "Hold",
+            time: 4000,
+            scale: 1,
+            color: "rgba(255,255,255,0.15)",
+          },
+        ],
+        nostril: [
+          { action: "Inhale Left", time: 4000, scale: 1.6, color: "#ff9b2f" },
+          {
+            action: "Exhale Right",
+            time: 4000,
+            scale: 1,
+            color: "rgba(255,255,255,0.15)",
+          },
+          { action: "Inhale Right", time: 4000, scale: 1.6, color: "#ff9b2f" },
+          {
+            action: "Exhale Left",
+            time: 4000,
+            scale: 1,
+            color: "rgba(255,255,255,0.15)",
+          },
+        ],
+        paced: [
+          { action: "Inhale", time: 7000, scale: 1.6, color: "#78c841" },
+          {
+            action: "Exhale",
+            time: 11000,
+            scale: 1,
+            color: "rgba(255,255,255,0.15)",
+          },
+        ],
+        active: [
+          { action: "Inhale Fast", time: 2000, scale: 1.5, color: "#ff4d4d" },
+          {
+            action: "Exhale Fast",
+            time: 2000,
+            scale: 1,
+            color: "rgba(255,255,255,0.15)",
+          },
+          {
+            action: "Hold",
+            time: 15000,
+            scale: 1,
+            color: "rgba(255,255,255,0.15)",
+          },
+        ],
+      };
+
+      // Hover тайлбар
+      document.querySelectorAll(".menu button").forEach((btn) => {
+        btn.addEventListener("mouseenter", () => {
+          instructions.textContent = btn.dataset.description;
+        });
+        btn.addEventListener("mouseleave", () => {
+          instructions.textContent = "Select an exercise";
+        });
+      });
+
+      function runPhase() {
+        clearTimeout(timer);
+        clearInterval(countdownTimer);
+
+        let phase = phases[current];
+        let remaining = Math.ceil(phase.time / 1000);
+        instructions.textContent = phase.action;
+
+        circle.style.transition = `transform ${
+          phase.time / 1000
+        }s ease-in-out, background 0.5s ease-in-out`;
+        circle.style.transform = `scale(${phase.scale})`;
+        circle.style.background = phase.color;
+
+        circle.textContent = remaining;
+        countdownTimer = setInterval(() => {
+          remaining--;
+          if (remaining >= 0) circle.textContent = remaining;
+        }, 1000);
+
+        timer = setTimeout(() => {
+          current = (current + 1) % phases.length;
+          runPhase();
+        }, phase.time);
+      }
+
+      function startExercise(type) {
+        stopExercise();
+        phases = exercises[type];
+        current = 0;
+
+        circle.textContent = "Ready";
+        instructions.textContent = "Get Ready...";
+        circle.style.transform = "scale(1)";
+        circle.style.background = "rgba(255,255,255,0.15)";
+
+        delayTimer = setTimeout(() => {
+          runPhase();
+        }, 2000);
+      }
+
+      function stopExercise() {
+        clearTimeout(timer);
+        clearTimeout(delayTimer);
+        clearInterval(countdownTimer);
+        circle.textContent = "Ready";
+        circle.style.transform = "scale(1)";
+        circle.style.background = "rgba(255,255,255,0.15)";
+        instructions.textContent = "Select an exercise";
+      }
+
+      const playerIframe = document.getElementById("bgVideo");
+
+      function playVideo() {
+        document.querySelector(".bgAudio").play();
+      }
+      window.onload = () => {
+        playVideo();
+      };
+
+      document.body.addEventListener("mouseover", () => {
+        playVideo();
+      });
+    </script>
+  </body>
+</html>
