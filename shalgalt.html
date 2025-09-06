@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Shalgalt</title>
+</head>
+<body>
+    <script>
+        function countVowel (str) {
+            let vowels = "aeiou " ;
+            let count = 0;
+            for (let char of str.toLowerCase()) {
+                if (vowels.includes(char)) {
+                    count++;
+                }
+            }
+            return count;
+        }
+        console.log(countVowel("hello"));
+        //Ex 3.16
+        function removeDuplicates(arr) {
+            return [...new Set(arr)];
+        }
+        console.log(removeDuplicates([1, 2, 2, 3, 4, 4, 5]));
+        //Ex 3.17
+        function findMax (arr) {
+            let max = arr[0];
+            for (let num of arr) {
+                if (num > max) {
+                    max = num ;
+                }
+            }
+            return max;
+        }
+        console.log(findMax([4 , 7 , 2, 8 , 10 , 3]));
+        //Ex 4.18
+        function sumOfArray(arr) {
+            let sum = 0;
+            for (let num of arr) {
+                sum+= num;
+            }
+            return sum;
+        }
+        console.log(sumOfArray([1, 2, 3, 4 ,5]));
+        //Ex 4.19
+        function fizzBuzz(){
+            for(let i = 1; i<= 100; i++) {
+                if(i % 3 === 0 && i % 5 ===0) {
+                    console.log("FizzBuzz");
+                } else if (I % 3 === 0 ) {
+                    console.log("Fizz")
+                } else if (i % 5 === 0 ) {
+                    console.log("Buzz");
+                } else {
+                    console.log(i);
+                }
+            }
+        }
+        fizzBuzz();
+        //Ex 4.20
+        function mergeArrays (arr1, arr2) {
+            let merged = [];
+            let i = 0, j = 0;
+
+            while (i < arr1.length && j < arr2.length) {
+                if (arr1[i] < arr2[j]) {
+                    merged.push(arr1[i]);
+                    i++
+                } else {
+                    merged.push(arr2[j]);
+                    j++;
+                }
+            }
+            while (i < arr1.length) {
+                merged.push(arr1[i]);
+            }
+            while (j < arr2.length) {
+                merged.push(arr2[j]);
+                j++;
+            }
+            return merged;
+        }
+        console.log(mergedArrays([1 , 3 ,5], [2 ,4 ,6]));
+    </script>
+</body>
+</html>

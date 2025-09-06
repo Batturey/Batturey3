@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Calculator</title>
+    <link rel="stylesheet" href="todo.css">
+</head>
+
+<body>
+    <div class="mainContainer">
+        <div class="container">
+            <p id="input">0</p>
+            <div class="miniContainer">
+
+                <button class="n 1" onclick="handleNumberButton(1)">1</button>
+                <button class="n 2" onclick="handleNumberButton(2)">2</button>
+                <button class="n 3" onclick="handleNumberButton(3)">3</button>
+                <button class="n u +" onclick="handleOperatorButton('+')">+</button>
+                <button class="n 4" onclick="handleNumberButton(4)">4</button>
+                <button class="n 5" onclick="handleNumberButton(5)">5</button>
+                <button class="n 6" onclick="handleNumberButton(6)">6</button>
+                <button class="n u -" onclick="handleOperatorButton('-')">-</button>
+                <button class="n 7" onclick="handleNumberButton(7)">7</button>
+                <button class="n 8" onclick="handleNumberButton(8)">8</button>
+                <button class="n 9" onclick="handleNumberButton(9)">9</button>
+                <button class="n u *" onclick="handleOperatorButton('*')">*</button>
+                <button class="n 0" onclick="handleNumberButton(0)">0</button>
+                <button class="n C" onclick="handleClearButton()">c</button>
+                <button class="n calc" onclick="calc('=')">=</button>
+                <button class="n u /" onclick="handleOperatorButton('/')">/</button>
+
+            </div>
+        </div>
+    </div>
+    <script>
+        let firstValue, secondValue, operator, answer;
+        let step = 1;
+
+        const input = document.querySelector("#input");
+
+        function handleNumberButton(key) {
+            input.innerHTML = input.innerHTML + key;
+        }
+
+        function handleOperatorButton(key) {
+            operator = key;
+            if (step === 1) {
+                firstValue = parseFloat(input.innerHTML);
+                input.innerHTML = "";
+                step = 2;
+            }
+            if (step === 2) {
+                secondValue = parseFloat(input.innerHTML);
+                step = 1;
+            }
+        }
+
+        function handleClearButton() {
+            firstValue = 0;
+            secondValue = 0;
+            operator = undefined;
+            step = 1;
+            input.innerHTML = "";
+        }
+
+        function calc() {
+            secondValue = parseFloat(input.innerHTML);
+
+            switch (operator) {
+                case "+":
+                    answer = firstValue + secondValue;
+                    break;
+                case "-":
+                    answer = firstValue - secondValue;
+                    break;
+                case "*":
+                    answer = firstValue * secondValue;
+                    break;
+                case "/":
+                    answer = firstValue / secondValue;
+                    break;
+                default:
+                    answer = parseFloat(input.innerHTML);
+            }
+
+            input.innerHTML = answer;
+        }
+        document.addEventListener("keydown", function (e) {
+      const key = e.key;
+
+      switch (key) {
+        case "+":
+          handleOperatorButton("+");
+          break;
+        case "-":
+          handleOperatorButton("-");
+          break;
+        case "*":
+          handleOperatorButton("*");
+          break;
+        case "/":
+          handleOperatorButton("/");
+          break;
+        case "Enter":
+          calc();
+          break;
+        case "Escape":
+          handleClearButton();
+          break;
+        default:
+          if (!isNaN(key)) {
+            handleNumberButton(key);
+          }
+      }
+      console.log(e);
+    });
+    </script>
+</body>
+
+</html>

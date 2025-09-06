@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Chessboard</title>
+    <link rel="stylesheet" href="chess.css">
+</head>
+<body>
+    <div id="chessboard" class="chessboard">
+        <!-- Chessboard squares will be created by JS -->
+    </div>
+
+    <script src="script.js">
+        const board = document.getElementById("chessboard");
+
+// Pieces for the starting chess position
+const pieces = [
+    ['r', 'n', 'b', 'q', 'k', 'b', 'n', 'r'], // Black back rank (8th row)
+    ['p', 'p', 'p', 'p', 'p', 'p', 'p', 'p'], // Black pawns (7th row)
+    Array(8).fill(null), // Empty row (6th row)
+    Array(8).fill(null), // Empty row (5th row)
+    Array(8).fill(null), // Empty row (4th row)
+    Array(8).fill(null), // Empty row (3rd row)
+    ['P', 'P', 'P', 'P', 'P', 'P', 'P', 'P'], // White pawns (2nd row)
+    ['R', 'N', 'B', 'Q', 'K', 'B', 'N', 'R'], // White back rank (1st row)
+];
+
+// Create the chessboard squares
+for (let row = 0; row < 8; row++) {
+    for (let col = 0; col < 8; col++) {
+        const square = document.createElement("div");
+        square.classList.add("square");
+
+        // Alternate between light and dark squares
+        if ((row + col) % 2 === 0) {
+            square.classList.add("light");
+        } else {
+            square.classList.add("dark");
+        }
+
+        // Add pieces to the board
+        if (pieces[row][col]) {
+            const piece = document.createElement("div");
+            piece.classList.add("piece");
+            piece.textContent = pieces[row][col];
+            square.appendChild(piece);
+        }
+
+        // Add the square to the chessboard
+        board.appendChild(square);
+    }
+}
+
+    </script>
+</body>
+</html>
