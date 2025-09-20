@@ -1,35 +1,51 @@
-import React, { useState, useEffect } from "react"
-
-const images = [
-  "/images/ip16.jpg",
-  "/images/ip16.jpg",
-  "/images/ip16.jpg",
-  "/images/ip16.jpg",
-]
+import React from "react"
+import Carousel from "react-bootstrap/Carousel"
+import Image from "next/image"
 
 const Slider = () => {
-  const [current, setCurrent] = useState(0)
-
-  useEffect(() => {
-    const interval = setInterval(() => {
-      setCurrent((prev) => (prev + 1) % images.length)
-    }, 3000)
-    return () => clearInterval(interval)
-  }, [])
-
   return (
-    <div className='relative h-64 md:h-96 overflow-hidden'>
-      {images.map((img, index) => (
-        <img
-          key={index}
-          src={img}
-          alt='slider'
-          className={`absolute top-0 left-0 w-full h-full object-cover transition-opacity duration-1000 ${
-            index === current ? "opacity-100" : "opacity-0"
-          }`}
+    <Carousel className='h-[700px]'>
+      <Carousel.Item className='h-[700px]'>
+        <Image
+          src='/images/slider1.jpeg'
+          alt='wef'
+          fill
+          className='object-cover !w-full !h-[700px]'
         />
-      ))}
-    </div>
+        <Carousel.Caption>
+          <h3>First slide label</h3>
+          <p>Nulla vitae elit libero, a pharetra augue mollis interdum.</p>
+        </Carousel.Caption>
+      </Carousel.Item>
+
+      <Carousel.Item className='h-[700px]'>
+        <Image
+          src='/images/slider2.jpeg'
+          alt='wef'
+          fill
+          className='object-cover !w-full !h-[700px]'
+        />
+        <Carousel.Caption>
+          <h3>Second slide label</h3>
+          <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+        </Carousel.Caption>
+      </Carousel.Item>
+
+      <Carousel.Item className='h-[700px]'>
+        <Image
+          src='/images/slider3.jpg'
+          alt='wef'
+          fill
+          className='object-cover !w-full !h-[700px]'
+        />
+        <Carousel.Caption>
+          <h3>Third slide label</h3>
+          <p>
+            Praesent commodo cursus magna, vel scelerisque nisl consectetur.
+          </p>
+        </Carousel.Caption>
+      </Carousel.Item>
+    </Carousel>
   )
 }
 

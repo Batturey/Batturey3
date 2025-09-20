@@ -1,68 +1,67 @@
-import React, { useState } from "react";
+// components/Navbar.jsx
+import React from "react"
 
-const Navbar = ({ cartCount, onToggleCart, onLoginClick }) => {
-  const [menuOpen, setMenuOpen] = useState(false);
-
+const Navbar = ({ onLoginClick }) => {
   return (
-    <header className="bg-white shadow-md sticky top-0 z-50">
-      <div className="container mx-auto flex justify-between items-center py-4 px-6">
-        {/* Logo */}
-        <div
-          className="text-2xl font-bold text-blue-600 cursor-pointer"
-          onClick={() => window.scrollTo(0, 0)}
+    <header className='sticky top-0 z-50 bg-white dark:bg-black border-b border-gray-200 dark:border-gray-800'>
+      <div className='max-w-screen-xl mx-auto px-6 flex justify-between items-center h-16'>
+        {/* Brand */}
+        <a
+          href='/'
+          className='text-2xl font-bold text-black dark:text-white tracking-tight hover:opacity-80 transition'
         >
-          AppleShop
-        </div>
+           AppleShop
+        </a>
 
-        {/* Desktop Menu */}
-        <nav className="hidden md:flex space-x-6">
-          <a href="#about" className="text-gray-700 hover:text-blue-600">About</a>
-          <a href="#products" className="text-gray-700 hover:text-blue-600">Products</a>
-          <a href="#contact" className="text-gray-700 hover:text-blue-600">Contact Us</a>
+        {/* Nav Links */}
+        <nav className='hidden md:flex items-center space-x-6 text-sm font-medium'>
+          <a
+            href='#about'
+            className='text-gray-800 dark:text-gray-200 hover:text-blue-600 transition'
+          >
+            About
+          </a>
+          <a
+            href='#products'
+            className='text-gray-800 dark:text-gray-200 hover:text-blue-600 transition'
+          >
+            Products
+          </a>
+          <a
+            href='#contact'
+            className='text-gray-800 dark:text-gray-200 hover:text-blue-600 transition'
+          >
+            Contact
+          </a>
         </nav>
 
-        <div className="flex items-center space-x-4">
-          {/* Login */}
+        {/* Icons */}
+        <div className='flex items-center space-x-4'>
+          <input
+            type='text'
+            placeholder='Search'
+            className='hidden md:block text-sm px-3 py-1.5 border border-gray-300 rounded bg-gray-50 dark:bg-gray-800 dark:text-white placeholder-gray-400 focus:outline-none focus:ring-1 focus:ring-blue-500 transition'
+          />
           <button
-            onClick={onLoginClick}
-            className="text-gray-700 hover:text-blue-600"
-          >
-            Login
-          </button>
-
-          {/* Cart */}
-          <button
-            onClick={onToggleCart}
-            className="relative text-gray-700 hover:text-blue-600"
+            onClick={() =>
+              document
+                .getElementById("cart-sidebar")
+                ?.classList.toggle("translate-x-full")
+            }
+            className='text-xl text-gray-700 dark:text-white hover:text-blue-500'
           >
             🛒
-            {cartCount > 0 && (
-              <span className="absolute -top-2 -right-2 bg-red-500 text-white text-xs rounded-full w-5 h-5 flex items-center justify-center">
-                {cartCount}
-              </span>
-            )}
           </button>
-
-          {/* Mobile Hamburger */}
           <button
-            className="md:hidden text-gray-700"
-            onClick={() => setMenuOpen(!menuOpen)}
+            onClick={() => onLoginClick()}
+            className='text-xl text-gray-700 dark:text-white hover:text-blue-500'
           >
-            {menuOpen ? "✖️" : "☰"}
+            👤
           </button>
         </div>
       </div>
-
-      {/* Mobile Menu */}
-      {menuOpen && (
-        <nav className="md:hidden bg-gray-50 px-6 py-4 space-y-2">
-          <a href="#about" className="block text-gray-700 hover:text-blue-600">About</a>
-          <a href="#products" className="block text-gray-700 hover:text-blue-600">Products</a>
-          <a href="#contact" className="block text-gray-700 hover:text-blue-600">Contact Us</a>
-        </nav>
-      )}
     </header>
-  );
-};
+  )
+}
 
-export default Navbar;
+export default Navbar

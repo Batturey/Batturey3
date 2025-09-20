@@ -1,58 +1,41 @@
 "use client"
 
 import React from "react"
-import Navbar from "../components/Navbar"
 import ProductCard from "../components/ProductCard"
 import CartSidebar from "../components/CartSidebar"
 import Slider from "../components/Slider"
-import Footer from "../components/Footer"
 import About from "../components/About"
 import Contact from "../components/Contact"
 import LoginModal from "../components/LoginModal"
-import { Toaster } from "react-hot-toast"
-
-function MyApp({ Component, pageProps }) {
-  return (
-    <>
-      <Toaster position='top-center' />
-      <Component {...pageProps} />
-    </>
-  )
-}
+import { CartProvider, useCart } from "./components/context/CartContext"
 
 const products = [
   {
     id: 1,
-    name: "iPhone 16 Pro",
+    name: "iPhone 17 Pro",
     description: "Titanium build, A18 chip",
     price: 1299,
-    image: "/images/iphone16pro.jpg",
+    image: "/images/ip172.jpg",
   },
   {
     id: 2,
     name: "MacBook Air M4",
     description: "15-inch Liquid Retina",
     price: 1899,
-    image: "/images/macbookairm4.jpg",
+    image: "/images/macbook.jpg",
   },
   {
     id: 3,
     name: "Apple Watch Ultra 3",
     description: "36h battery",
     price: 899,
-    image: "/images/watchultra3.jpg",
+    image: "/images/apwatch.jpg",
   },
 ]
 
 export default function HomePage() {
-  const openLogin = () => {
-    const modal = document.getElementById("login-modal")
-    if (modal) modal.classList.remove("hidden")
-  }
-
   return (
     <>
-      <Navbar onLoginClick={openLogin} />
       <LoginModal />
       <Slider />
       <About />
@@ -65,7 +48,6 @@ export default function HomePage() {
       </section>
       <Contact />
       <CartSidebar />
-      <Footer />
     </>
   )
 }

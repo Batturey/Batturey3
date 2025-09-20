@@ -4,7 +4,7 @@ const About = () => (
   <section id='about' className='py-12 bg-white'>
     <div className='max-w-6xl mx-auto px-4 flex flex-col md:flex-row items-center gap-8'>
       <img
-        src='/images/iphone16pro.jpg'
+        src='/images/ip16.jpg'
         alt='About AppleShop'
         className='w-full md:w-1/2 rounded-xl shadow'
       />
