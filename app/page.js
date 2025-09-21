@@ -4,10 +4,7 @@ import React from "react"
 import ProductCard from "../components/ProductCard"
 import CartSidebar from "../components/CartSidebar"
 import Slider from "../components/Slider"
-import About from "../components/About"
-import Contact from "../components/Contact"
 import LoginModal from "../components/LoginModal"
-import { CartProvider, useCart } from "./components/context/CartContext"
 
 const products = [
   {
@@ -38,7 +35,6 @@ export default function HomePage() {
     <>
       <LoginModal />
       <Slider />
-      <About />
       <section id='products' className='py-12 bg-gray-50'>
         <div className='max-w-6xl mx-auto px-4 grid gap-8 md:grid-cols-2 lg:grid-cols-3'>
           {products.map((p) => (
@@ -46,7 +42,6 @@ export default function HomePage() {
           ))}
         </div>
       </section>
-      <Contact />
       <CartSidebar />
     </>
   )
